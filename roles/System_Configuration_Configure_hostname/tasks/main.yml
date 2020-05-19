@@ -1,0 +1,5 @@
+---
+- name : Configure hostname
+  command: hostname {{hostname}}
+  become: yes
+  become_user: root 

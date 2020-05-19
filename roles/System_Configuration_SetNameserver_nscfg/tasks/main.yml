@@ -1,0 +1,8 @@
+---
+- name: Configure nameserver (alternate approach by editing /etc/resolv.conf and /etc/nsswitch.conf and then importing these modifications into SMF.)
+  shell: "{{ item }}"
+  with_items:
+  - 'nscfg import -f svc:/system/name-service/switch:default'
+  - 'nscfg import -f svc:/network/dns/client:default'
+  become: yes
+  become_user: root

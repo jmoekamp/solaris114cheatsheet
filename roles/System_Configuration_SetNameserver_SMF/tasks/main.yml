@@ -1,0 +1,11 @@
+---
+- name: Configure nameserver via SMF
+  shell: "{{ item }}"
+  with_items: 
+  - 'svccfg -s dns/client setprop config/nameserver = net_address: {{nameserver}}'
+  - 'svccfg -s dns/client setprop config/domain = astring: "{{domain}}"'
+  - 'svccfg -s name-service/switch  setprop config/host = astring: "{{nameservice_switch}}"'
+  - 'svcadm restart name-service/switch'
+  - 'svcadm restart dns/client'
+  become: yes
+  become_user: root

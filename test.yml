@@ -4,48 +4,18 @@
   tasks:
     - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'.
       copy:
-        content: hello worldn
+        content: hello world
         dest: /tmp/testfile.txt
 
 - hosts: node1
-  name: System Configuration
-  tasks:
-  - name : Configure hostname
-    command: hostname myhost
-    become: yes
-    become_user: root
-  - name: Configure nameserver via SMF
-    shell: "{{ item }}"
-    with_items: 
-    - 'svccfg -s dns/client setprop config/nameserver = net_address: 192.168.1.1'
-    - 'svccfg -s dns/client setprop config/domain = astring: "myhost.org"'
-    - 'svccfg -s name-service/switch  setprop config/host = astring: "files dns"'
-    - 'svcadm restart name-service/switch'
-    - 'svcadm restart dns/client'
-    become: yes
-    become_user: root
-  - name: Configure nameserver (alternate approach by editing /etc/resolv.conf and /etc/nsswitch.conf and then importing these modifications into SMF.)
-    shell: "{{ item }}"
-    with_items:
-    - 'nscfg import -f svc:/system/name-service/switch:default'
-    - 'nscfg import -f svc:/network/dns/client:default'
-    become: yes
-    become_user: root
-
-- hosts: node1
-  name: Locales, Timezone, and Keyboard
-  tasks:
-  - name : Install nlsadm for easier management of national language properties (Solaris 11.2)
-    command: pkg install nls-administration 
-    become: yes
-    become_user: root 
-    ignore_errors: yes
-  - name: Get current configuration 
-    shell: "{{ item }}"
-    with_items:
-    - 'nlsadm get-console-keymap'
-    - 'nlsadm get-system-locale'
-    - 'nlsadm list-timezone'
-    become: yes
-    become_user: root 
-  
+  roles:
+    - role: System_Configuration_Configure_hostname
+      vars:
+          hostname: "myhost"
+    - role: System_Configuration_SetNameserver_SMF
+      vars: 
+          nameserver: "192.168.1.1"
+          domain: "mydomain.internal"
+          nameservice_switch: "files dns"
+    - role: System_Configuration_SetNameserver_nscfg
+     
