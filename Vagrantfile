@@ -7,7 +7,7 @@
 # you're doing.
 Vagrant.configure("2") do |config|
   config.vm.box = "solaris114"
-  config.ssh.private_key_path = "/Users/joergmoellenkamp/cheatsheet/keys/vagrantkey"
+  config.ssh.private_key_path = "/Users/joergmoellenkamp/solaris114cheatsheet/keys/vagrantkey"
   config.ssh.insert_key = false
   
   config.vm.provider "virtualbox" do |vb|
