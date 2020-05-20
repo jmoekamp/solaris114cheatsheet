@@ -1,0 +1,9 @@
+---
+- name: UsersAndRoles_RootAsRole
+  shell: usermod -K type=role root
+  become: yes
+  become_user: root
+  register: UsersAndRoles_RootAsRole_output
+
+- debug:
+    var: UsersAndRoles_RootAsRole_output.stdout

@@ -1,0 +1,9 @@
+---
+- name: UsersAndRoles_RootRoleWithUserPassword
+  shell: rolemod -K roleauth=user root
+  become: yes
+  become_user: root
+  register: UsersAndRoles_RootRoleWithUserPassword_output
+
+- debug:
+    var: UsersAndRoles_RootRoleWithUserPassword_output.stdout

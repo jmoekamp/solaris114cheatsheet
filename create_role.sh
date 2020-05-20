@@ -19,6 +19,6 @@ perl -i -pe s/%%Functionname%%/$functionname/g $tasksmainymlpath
 
 echo "    - role: $rolename " >> /Users/joergmoellenkamp/solaris114cheatsheet/test.yml
 
-code /Users/joergmoellenkamp/solaris114cheatsheet/test.yml
-code $tasksmainymlpath
+code /Users/joergmoellenkamp/solaris114cheatsheet/test.yml &
+code $tasksmainymlpath &
 
