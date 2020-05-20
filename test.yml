@@ -9,16 +9,22 @@
 
 - hosts: node1
   roles:
-    - role: SystemConfiguration_ConfigureHostname
-      vars:
-          hostname: "myhost"
-    - role: SystemConfiguration_SetNameserverSMF
-      vars: 
-          nameserver: "192.168.1.1"
-          domain: "mydomain.internal"
-          nameservice_switch: "files dns"
-    - role: SystemConfiguration_SetNameserverNscfgImport
-      vars: 
-          resolv_conf_file : "/Users/joergmoellenkamp/solaris114cheatsheet/testcase_files/resolv.conf.1"
-          nsswitch_conf_file: "/Users/joergmoellenkamp/solaris114cheatsheet/testcase_files/resolv.conf.1"   
+ #   - role: SystemConfiguration_ConfigureHostname
+ #     vars:
+ #         hostname: "myhost"
+ #   - role: SystemConfiguration_SetNameserverSMF
+ #     vars: 
+ #         nameserver: "192.168.1.1"
+ #         domain: "mydomain.internal"
+ #         nameservice_switch: "files dns"
+ #   - role: SystemConfiguration_SetNameserverNscfgImport
+ #     vars: 
+ #         resolv_conf_file: "/Users/joergmoellenkamp/solaris114cheatsheet/testcase_files/resolv.conf.1"
+ #         nsswitch_conf_file: "/Users/joergmoellenkamp/solaris114cheatsheet/testcase_files/resolv.conf.1"   
+ #   - role: LocalesTimezoneKeyboard_InstallNlsadm
+ #   - role: LocalesTimezoneKeyboard_GetCurrentConfiguration
+    - role: LocalesTimezoneKeyboard_ListAvailableTimezones
+
+
+
      

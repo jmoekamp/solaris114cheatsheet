@@ -1,0 +1,30 @@
+---
+- name: Locales, Timezone, and Keyboard - Get Current Configuration - get-console-keymap
+  tags: get-console-keymap
+  shell: "nlsadm get-console-keymap"
+  become: yes
+  become_user: root
+  register: LocalesTimezoneKeyboard_GetCurrentConfiguration_output_getconsolekeymap
+
+- debug:
+    var: LocalesTimezoneKeyboard_GetCurrentConfiguration_output_getconsolekeymap.stdout
+
+- name: Locales, Timezone, and Keyboard - Get Current Configuration -  get-system-locale
+  tags: get-system-locale
+  shell: "nlsadm get-system-locale"
+  become: yes
+  become_user: root
+  register: LocalesTimezoneKeyboard_GetCurrentConfiguration_output_getsystemlocale
+  
+- debug:
+    var: LocalesTimezoneKeyboard_GetCurrentConfiguration_output_getsystemlocale.stdout
+
+- name: Locales, Timezone, and Keyboard - Get Current Configuration - get-timezone
+  tags: get-timezone
+  shell: "nlsadm get-timezone"
+  become: yes
+  become_user: root
+  register: LocalesTimezoneKeyboard_GetCurrentConfiguration_output_gettimezone
+
+- debug:
+    var: LocalesTimezoneKeyboard_GetCurrentConfiguration_output_gettimezone.stdout

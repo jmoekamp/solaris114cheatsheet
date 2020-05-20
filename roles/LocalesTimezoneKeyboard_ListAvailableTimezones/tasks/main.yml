@@ -1,0 +1,10 @@
+---
+- name: Locales, Timezone, and Keyboard - List available timezones
+  tags: get-console-keymap
+  shell: "nlsadm list-timezone"
+  become: yes
+  become_user: root
+  register: LocalesTimezoneKeyboard_ListAvailableTimezones_output
+
+- debug:
+    var: LocalesTimezoneKeyboard_ListAvailableTimezones_output.stdout
