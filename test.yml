@@ -18,4 +18,7 @@
           domain: "mydomain.internal"
           nameservice_switch: "files dns"
     - role: SystemConfiguration_SetNameserverNscfgImport
+      vars: 
+          resolv_conf_file : "/Users/joergmoellenkamp/solaris114cheatsheet/testcase_files/resolv.conf.1"
+          nsswitch_conf_file: "/Users/joergmoellenkamp/solaris114cheatsheet/testcase_files/resolv.conf.1"   
      

@@ -1,8 +1,27 @@
 ---
-- name: Configure nameserver (alternate approach by editing /etc/resolv.conf and /etc/nsswitch.conf and then importing these modifications into SMF.)
+- name: Configure nameserver via nscfg (provide resolv.conf)
+  copy:
+    src: "{{ resolv_conf_file }}"
+    dest: /tmp/resolv.conf
+    
+- name: Configure nameserver via nscfg (provide nsswitch.conf)
+  copy:
+    src: "{{ nsswitch_conf_file }}"
+    dest: /tmp/nsswitch.conf
+
+- name: Configure nameserver via nscfg (importing these modifications into SMF.)
   shell: "{{ item }}"
   with_items:
+  - 'mv /tmp/resolv.conf /etc/resolv.conf'
+  - 'mv /tmp/nsswitch.conf /etc/nsswitch.conf'
+  - 'chmod 0644 /etc/resolv.conf'
+  - 'chmod 0644 /etc/nsswitch.conf'
+  - 'chown root:root /etc/resolv.conf'
+  - 'chown root:sys /etc/nsswitch.conf'
   - 'nscfg import -f svc:/system/name-service/switch:default'
   - 'nscfg import -f svc:/network/dns/client:default'
   become: yes
   become_user: root
+
+# Annotations
+# - copy doesn't tranport files into /etc . Check later.
