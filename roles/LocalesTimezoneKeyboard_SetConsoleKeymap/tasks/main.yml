@@ -1,0 +1,9 @@
+---
+- name: LocalesTimezoneKeyboard_SetConsoleKeymap
+  shell: nlsadm set-console-keymap {{ console_keymap }}
+  become: yes
+  become_user: root
+  register: LocalesTimezoneKeyboard_SetConsoleKeymap_output
+
+- debug:
+    var: LocalesTimezoneKeyboard_SetConsoleKeymap_output.stdout

@@ -23,8 +23,14 @@
  #         nsswitch_conf_file: "/Users/joergmoellenkamp/solaris114cheatsheet/testcase_files/resolv.conf.1"   
  #   - role: LocalesTimezoneKeyboard_InstallNlsadm
  #   - role: LocalesTimezoneKeyboard_GetCurrentConfiguration
-    - role: LocalesTimezoneKeyboard_ListAvailableTimezones
-
-
-
-     
+ #   - role: LocalesTimezoneKeyboard_ListAvailableTimezones
+ #   - role: LocalesTimezoneKeyboard_ListAvailableConsoleKeymaps
+ #   - role: LocalesTimezoneKeyboard_SetTimezone
+ #     vars:
+ #         timezone: "Europe/Berlin"
+ #   - role: LocalesTimezoneKeyboard_SetLocale
+ #      vars:
+ #          locale: "de_DE.UTF-8"
+     - role: LocalesTimezoneKeyboard_SetConsoleKeymap 
+       vars:
+          console_keymap: "UK-English"

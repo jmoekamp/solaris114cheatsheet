@@ -1,0 +1,9 @@
+---
+- name: LocalesTimezoneKeyboard_ListAvailableLocales
+  shell: nlsadm list-locale
+  become: yes
+  become_user: root
+  register: LocalesTimezoneKeyboard_ListAvailableLocales_output
+
+- debug:
+    var: LocalesTimezoneKeyboard_ListAvailableLocales_output.stdout

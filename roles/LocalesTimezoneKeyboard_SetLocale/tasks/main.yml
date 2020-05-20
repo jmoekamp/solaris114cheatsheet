@@ -1,0 +1,9 @@
+---
+- name: LocalesTimezoneKeyboard_SetLocale
+  shell: nlsadm set-system-locale {{ locale }}
+  become: yes
+  become_user: root
+  register: LocalesTimezoneKeyboard_SetLocale_output
+
+- debug:
+    var: LocalesTimezoneKeyboard_SetLocale_output.stdout

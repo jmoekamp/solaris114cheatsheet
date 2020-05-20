@@ -1,0 +1,9 @@
+---
+- name: LocalesTimezoneKeyboard_SetTimezone
+  shell: nlsadm set-timezone {{ timezone }}
+  become: yes
+  become_user: root
+  register: LocalesTimezoneKeyboard_SetTimezone_output
+
+- debug:
+    var: LocalesTimezoneKeyboard_SetTimezone_output.stdout

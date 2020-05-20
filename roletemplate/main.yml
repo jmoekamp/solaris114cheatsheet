@@ -1,0 +1,9 @@
+---
+- name: %%Sectionname%%_%%Functionname%%
+  shell: %%Command%%
+  become: yes
+  become_user: root
+  register: %%Sectionname%%_%%Functionname%%_output
+
+- debug:
+    var: %%Sectionname%%_%%Functionname%%_output.stdout
