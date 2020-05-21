@@ -1,0 +1,10 @@
+    - role:  
+    - role: LocalesTimezoneKeyboard_ListAvailableLocales 
+    - role: LocalesTimezoneKeyboard_ListAvailableLocales 
+    - role: LocalesTimezoneKeyboard_ListAvailableLocales 
+    - role: LocalesTimezoneKeyboard_ListAvailableLocales 
+    - role: LocalesTimezoneKeyboard_ListAvailableLocales 
+    - role: LocalesTimezoneKeyboard_ListAvailableLocales 
+    - role: LocalesTimezoneKeyboard_ListAvailableLocales 
+    - role: LocalesTimezoneKeyboard_ListAvailableLocales 
+    - role: LocalesTimezoneKeyboard_SetTimezone 

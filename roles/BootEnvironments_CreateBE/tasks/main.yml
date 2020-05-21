@@ -1,0 +1,9 @@
+---
+- name: BootEnvironments_CreateBE
+  shell: beadm create {{ BootEnvironmentName }}
+  become: yes
+  become_user: root
+  register: BootEnvironments_CreateBE_output
+
+- debug:
+    var: BootEnvironments_CreateBE_output.stdout

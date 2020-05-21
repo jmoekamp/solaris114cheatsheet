@@ -1,0 +1,8 @@
+---
+- name: UsersAndRoles_CreateUserNFS
+  include_role:
+    name: UsersAndRoles_CreateUserGeneric
+  vars:
+    hostname_generic: "{{ hostname }}"
+    username_generic: "{{ username }}"
+  ignore_errors: yes

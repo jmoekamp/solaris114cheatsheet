@@ -4,4 +4,4 @@
     name: UsersAndRoles_SetRoleAuth
   vars:
     roleauth: role
-    role: root
+    rolename: root

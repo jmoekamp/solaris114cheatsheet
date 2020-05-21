@@ -1,0 +1,9 @@
+---
+- name: BootEnvironments_DestroyBE
+  shell: beadm destroy -F {{ BootEnvironmentName }}
+  become: yes
+  become_user: root
+  register: BootEnvironments_DestroyBE_output
+
+- debug:
+    var: BootEnvironments_DestroyBE_output.stdout

@@ -1,0 +1,9 @@
+---
+- name: BootEnvironments_ActivateBE
+  shell: beadm activate {{ BootEnvironmentName }}
+  become: yes
+  become_user: root
+  register: BootEnvironments_ActivateBE_output
+
+- debug:
+    var: BootEnvironments_ActivateBE_output.stdout

@@ -1,0 +1,8 @@
+---
+- name: UsersAndRoles_CreateUserLocal
+  include_role:
+    name: UsersAndRoles_CreateUserGeneric
+  vars:
+    hostname_generic: "localhost"
+    username_generic: "{{ username }}"
+ 

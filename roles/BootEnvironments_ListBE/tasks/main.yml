@@ -1,0 +1,9 @@
+---
+- name: BootEnvironments_ListBE
+  shell: beadm list
+  become: yes
+  become_user: root
+  register: BootEnvironments_ListBE_output
+
+- debug:
+    var: BootEnvironments_ListBE_output.stdout

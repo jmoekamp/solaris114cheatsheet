@@ -1,0 +1,10 @@
+---
+- name: UsersAndRoles_CreateUserGeneric
+  shell: useradd -m -d {{ hostname_generic }}:/export/home/{{ username_generic }} {{ username_generic }}
+  become: yes
+  become_user: root
+  register: UsersAndRoles_CreateUserGeneric_output
+  ignore_errors: yes
+  
+- debug:
+    var: UsersAndRoles_CreateUserGeneric_output.stdout
