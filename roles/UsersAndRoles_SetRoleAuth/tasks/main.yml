@@ -1,0 +1,9 @@
+---
+- name: UsersAndRoles_SetRoleAuth
+  shell: rolemod -K roleauth={{ roleauth }} {{ role }}
+  become: yes
+  become_user: root
+  register: UsersAndRoles_SetRoleAuth_output
+
+- debug:
+    var: UsersAndRoles_SetRoleAuth_output.stdout

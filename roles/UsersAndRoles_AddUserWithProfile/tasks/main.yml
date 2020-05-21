@@ -1,0 +1,9 @@
+---
+- name: UsersAndRoles_AddUserWithProfile
+  shell: useradd -m -P "{{ profile }}" {{ username }}
+  become: yes
+  become_user: root
+  register: UsersAndRoles_AddUserWithProfile_output
+
+- debug:
+    var: UsersAndRoles_AddUserWithProfile_output.stdout

@@ -1,0 +1,9 @@
+---
+- name: UsersAndRoles_DeleteUser
+  shell: userdel {{ username }}
+  become: yes
+  become_user: root
+  register: UsersAndRoles_DeleteUser_output
+
+- debug:
+    var: UsersAndRoles_DeleteUser_output.stdout

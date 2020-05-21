@@ -37,4 +37,17 @@
 #       console_keymap: "UK-English"
 #    - role: UsersAndRoles_RootAsUser 
 #    - role: UsersAndRoles_RootAsRole 
-    - role: UsersAndRoles_RootRoleWithUserPassword 
+#    - role: UsersAndRoles_RootRoleWithUserPassword 
+#    - role: UsersAndRoles_SetRoleAuth 
+#      vars: 
+#       roleauth: role
+#       role: root
+#    - role: UsersAndRoles_RootRoleWithRolePassword 
+    - role: UsersAndRoles_AddUserWithProfile
+      vars: 
+          profile: "System Administrator"
+          username: "joerg"
+        
+    - role: UsersAndRoles_DeleteUser 
+      vars:
+          username: "joerg"

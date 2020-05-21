@@ -1,0 +1,7 @@
+---
+- name: UsersAndRoles_RootRoleWithRolePassword
+  include_role:
+    name: UsersAndRoles_SetRoleAuth
+  vars:
+    roleauth: role
+    role: root
