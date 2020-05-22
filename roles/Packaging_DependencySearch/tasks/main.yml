@@ -1,0 +1,9 @@
+---
+- name: Packaging_DependencySearch
+  shell: "pkg search -l -o pkg.name 'depend::{{ PackageName }}'"
+  become: yes
+  become_user: root
+  register: Packaging_DependencySearch_output
+
+- debug:
+    var: Packaging_DependencySearch_output.stdout

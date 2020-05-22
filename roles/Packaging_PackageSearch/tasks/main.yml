@@ -1,0 +1,9 @@
+---
+- name: Packaging_PackageSearch
+  shell: pkg search {{ SearchFor }}
+  become: yes
+  become_user: root
+  register: Packaging_PackageSearch_output
+
+- debug:
+    var: Packaging_PackageSearch_output.stdout

@@ -1,0 +1,19 @@
+---
+- name: Copy Certicate
+  copy:
+    src: "{{ SRUCertificate }}"
+    dest: /tmp/pkg.oracle.com.certificate.pem
+    
+- name: Copy key
+  copy:
+    src: "{{ SRUKey }}"
+    dest: /tmp/pkg.oracle.com.key.pem
+
+- name: Packaging_ConfigureSRUUpdates
+  shell: 'pkg set-publisher -G "*" -g https://pkg.oracle.com/solaris/support/  -k /tmp/pkg.oracle.com.key.pem -c /tmp/pkg.oracle.com.certificate.pem solaris'
+  become: yes
+  become_user: root
+  register: Packaging_ConfigureSRUUpdates_output
+
+- debug:
+    var: Packaging_ConfigureSRUUpdates_output.stdout

@@ -1,0 +1,9 @@
+---
+- name: Packaging_ShowPackageContent
+  shell: pkg contents {{ PackageName }}
+  become: yes
+  become_user: root
+  register: Packaging_ShowPackageContent_output
+
+- debug:
+    var: Packaging_ShowPackageContent_output.stdout

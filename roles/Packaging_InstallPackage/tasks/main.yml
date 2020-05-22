@@ -4,6 +4,7 @@
   become: yes
   become_user: root
   register: Packaging_InstallPackage_output
+  ignore_errors: yes
 
 - debug:
     var: Packaging_InstallPackage_output.stdout

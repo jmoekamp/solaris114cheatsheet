@@ -1,0 +1,9 @@
+---
+- name: Packaging_ShowPublisher
+  shell: pkg publisher
+  become: yes
+  become_user: root
+  register: Packaging_ShowPublisher_output
+
+- debug:
+    var: Packaging_ShowPublisher_output.stdout
