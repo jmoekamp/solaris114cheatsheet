@@ -47,12 +47,20 @@
     #   hostname: "localhost"
     # - role: UsersAndRoles_DeleteUser 
     #   username: "joerg4"  
-    - role: BootEnvironments_ListBE 
-    - role: BootEnvironments_CreateBE 
-      BootEnvironmentName: solaris-05032012
-    - role: BootEnvironments_ActivateBE 
-      BootEnvironmentName: solaris-05032012
-    - role: BootEnvironments_ActivateBE 
-      BootEnvironmentName: solaris-1
-    - role: BootEnvironments_DestroyBE
-      BootEnvironmentName: solaris-05032012 
+    # - role: BootEnvironments_ListBE 
+    # - role: BootEnvironments_CreateBE 
+    #   BootEnvironmentName: solaris-05032012
+    # - role: BootEnvironments_ActivateBE 
+    #   BootEnvironmentName: solaris-05032012
+    # - role: BootEnvironments_ActivateBE 
+    #   BootEnvironmentName: solaris-1
+    # - role: BootEnvironments_DestroyBE
+    #   BootEnvironmentName: solaris-05032012  
+    # - role: Packaging_InstallPackage 
+    #   PackageName: "diagnostic/wireshark"
+    # - role: Packaging_InstallPackage 
+    #   PackageName: "solaris-desktop"    
+    - role: Packaging_UninstallPackage 
+      PackageName: "diagnostic/wireshark"
+    - role: Packaging_UninstallPackage 
+      PackageName: "solaris-desktop"

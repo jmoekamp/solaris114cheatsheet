@@ -1,0 +1,9 @@
+---
+- name: Packaging_InstallPackage
+  shell: pkg install {{ PackageName }}
+  become: yes
+  become_user: root
+  register: Packaging_InstallPackage_output
+
+- debug:
+    var: Packaging_InstallPackage_output.stdout

@@ -1,0 +1,9 @@
+---
+- name: Packaging_UninstallPackage
+  shell: pkg uninstall {{ PackageName }}
+  become: yes
+  become_user: root
+  register: Packaging_UninstallPackage_output
+
+- debug:
+    var: Packaging_UninstallPackage_output.stdout
