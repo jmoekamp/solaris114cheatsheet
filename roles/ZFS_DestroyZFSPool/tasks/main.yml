@@ -1,0 +1,9 @@
+---
+- name: ZFS_DestroyZFSPool
+  shell: zpool destroy -f {{ PoolName }} 
+  become: yes
+  become_user: root
+  register: ZFS_DestroyZFSPool_output
+
+- debug:
+    var: ZFS_DestroyZFSPool_output.stdout

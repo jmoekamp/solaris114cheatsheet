@@ -1,0 +1,9 @@
+---
+- name: ZFS_CreatePool
+  shell: zpool create {{ PoolName }} {{ PoolDisks }}
+  become: yes
+  become_user: root
+  register: ZFS_CreatePool_output
+
+- debug:
+    var: ZFS_CreatePool_output.stdout
