@@ -60,7 +60,8 @@
     #   PackageName: "diagnostic/wireshark"
     # - role: Packaging_InstallPackage 
     #   PackageName: "solaris-desktop"    
-    - role: Packaging_UninstallPackage 
-      PackageName: "diagnostic/wireshark"
-    - role: Packaging_UninstallPackage 
-      PackageName: "solaris-desktop"
+    # - role: Packaging_UninstallPackage 
+    #   PackageName: "diagnostic/wireshark"
+    # - role: Packaging_UninstallPackage 
+    #   PackageName: "solaris-desktop"
+    - role: Packaging_UpdateSystem 

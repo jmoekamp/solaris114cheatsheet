@@ -1,0 +1,9 @@
+---
+- name: Packaging_UpdateSystem
+  shell: pkg update
+  become: yes
+  become_user: root
+  register: Packaging_UpdateSystem_output
+
+- debug:
+    var: Packaging_UpdateSystem_output.stdout
