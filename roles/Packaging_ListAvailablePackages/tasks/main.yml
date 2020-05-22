@@ -1,0 +1,9 @@
+---
+- name: Packaging_ListAvailablePackages
+  shell: pkg list -a
+  become: yes
+  become_user: root
+  register: Packaging_ListAvailablePackages_output
+
+- debug:
+    var: Packaging_ListAvailablePackages_output.stdout

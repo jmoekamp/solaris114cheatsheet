@@ -1,0 +1,9 @@
+---
+- name: Packaging_UpdateSystemDryRun
+  shell: pkg update -nv
+  become: yes
+  become_user: root
+  register: Packaging_UpdateSystemDryRun_output
+
+- debug:
+    var: Packaging_UpdateSystemDryRun_output.stdout

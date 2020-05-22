@@ -1,0 +1,9 @@
+---
+- name: Packaging_ShowPackageInfo
+  shell: pkg info {{ PackageName }}
+  become: yes
+  become_user: root
+  register: Packaging_ShowPackageInfo_output
+
+- debug:
+    var: Packaging_ShowPackageInfo_output.stdout

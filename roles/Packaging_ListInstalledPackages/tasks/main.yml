@@ -1,0 +1,9 @@
+---
+- name: Packaging_ListInstalledPackages
+  shell: pkg list
+  become: yes
+  become_user: root
+  register: Packaging_ListInstalledPackages_output
+
+- debug:
+    var: Packaging_ListInstalledPackages_output.stdout

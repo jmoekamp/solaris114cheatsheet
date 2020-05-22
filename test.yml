@@ -56,12 +56,18 @@
     #   BootEnvironmentName: solaris-1
     # - role: BootEnvironments_DestroyBE
     #   BootEnvironmentName: solaris-05032012  
-    # - role: Packaging_InstallPackage 
-    #   PackageName: "diagnostic/wireshark"
+    - role: Packaging_InstallPackage 
+      PackageName: "diagnostic/wireshark"
+    - role: Packaging_ShowPackageInfo 
+      PackageName: "wireshark"
     # - role: Packaging_InstallPackage 
     #   PackageName: "solaris-desktop"    
-    # - role: Packaging_UninstallPackage 
-    #   PackageName: "diagnostic/wireshark"
+    - role: Packaging_UninstallPackage 
+      PackageName: "diagnostic/wireshark"
     # - role: Packaging_UninstallPackage 
     #   PackageName: "solaris-desktop"
-    - role: Packaging_UpdateSystem 
+    # - role: Packaging_UpdateSystem 
+    # - role: Packaging_ListAvailablePackages 
+    # - role: Packaging_UpdateSystemDryRun 
+    # - role: Packaging_ListInstalledPackages 
+    

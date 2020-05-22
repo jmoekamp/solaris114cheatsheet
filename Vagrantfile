@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   
   config.vm.provider "virtualbox" do |vb|
      vb.gui = true
-     vb.memory = "2024"
+     vb.memory = "4096"
   end
   config.vm.define "node1" do |node1|
     node1.vm.box = "solaris114"
